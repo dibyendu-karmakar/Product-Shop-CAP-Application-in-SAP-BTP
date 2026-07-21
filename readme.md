@@ -2,7 +2,6 @@
 
 Welcome to your new CAP project.
 This is a CAP project based on Material Entity and Vendor Entity.
-The line is added in GitHub.
 
 It contains these folders and files, following our recommended project layout:
 

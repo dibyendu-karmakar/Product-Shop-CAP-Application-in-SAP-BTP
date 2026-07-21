@@ -2,7 +2,8 @@
   "name": "ProductShop",
   "version": "1.0.0",
   "dependencies": {
-    "@sap/cds": "^9"
+    "@sap/cds": "^9",
+    "@sap/xssec": "^4"
   },
   "devDependencies": {
     "@cap-js/sqlite": "^2.4",
@@ -18,5 +19,28 @@
   ],
   "sapux": [
     "app/productshop"
-  ]
+  ],
+  "cds": {
+    "requires": {
+      "[development]": {
+        "auth": {
+          "kind": "mocked",
+          "users": {
+            "alice": {
+              "password": "alice",
+              "roles": [
+                "ShopManager"
+              ]
+            },
+            "bob": {
+              "password": "bob",
+              "roles": [
+                "ShopAssistant"
+              ]
+            }
+          }
+        }
+      }
+    }
+  }
 }

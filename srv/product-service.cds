@@ -37,3 +37,6 @@ service ProductShop {
     // Unbound action: Declared at the service root level
     action   getPrice(Number: Integer)               returns Decimal(10, 2);
 }
+
+
+annotate ProductShop with @(requires: 'ShopManager');

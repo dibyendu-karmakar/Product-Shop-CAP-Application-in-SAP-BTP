@@ -1,0 +1,93 @@
+############################ CRUD Operations GET Call ############################
+### Get data for Product P100 using oData API
+#GET http://localhost:4004/odata/v4/product/getProductDetails(productId='P100')
+
+## Get data for Product P100 using REST API
+#GET http://localhost:4004/rest/product/getProductDetails(productId='P100')
+
+## Get data for MaterialEntity using oData API
+# GET http://localhost:4004/odata/v4/product-shop/MaterialEntity
+
+## Get data for MaterialEntity using oData API
+# GET http://localhost:4004/odata/v4/product-shop/MaterialEntity(Number=1)
+
+## Get data for MaterialEntity using oData API - Expand Location
+# GET http://localhost:4004/odata/v4/product-shop/MaterialEntity?$expand=Location
+
+## Get data for MaterialEntity using oData API - Expand VendorEntity
+# GET http://localhost:4004/odata/v4/product-shop/MaterialEntity?$expand=vendor
+
+## Get data for VendorEntity using oData API - Expand MaterialEntity
+# GET http://localhost:4004/odata/v4/product-shop/VendorEntity?$expand=materials
+
+## Get data for VendorEntity using oData API - Expand MaterialEntity and filter by Vendor Name
+# GET http://localhost:4004/odata/v4/product-shop/VendorEntity?$expand=materials&$filter=ID eq 1007
+
+## Get data for VendorEntity using oData API - Expand MaterialEntity and select only specific fields
+# GET http://localhost:4004/odata/v4/product-shop/VendorEntity?$expand=materials($select=Number,Description,Quantity)&$select=Name,AddressLine1,Pincode
+
+
+
+
+
+############################ CRUD Operations POST Call ############################
+## Post data for MaterialEntity using oData API
+POST http://localhost:4004/odata/v4/product-shop/MaterialEntity
+Content-Type: application/json
+
+{
+    "Number": "17",
+    "Description": "Copper Wiring 12 AWG",
+    "vendor_GUID": "vnd_8f3a9e1c",
+    "Price": 50.99,
+    "PriceUoM": "USD"
+}
+
+
+## Post data for VendorEntity using oData API
+#  POST http://localhost:4004/odata/v4/product-shop/VendorEntity
+# Content-Type: application/json
+
+# {
+#     "Name" : "Apex Industrial Supplies Ltd",
+#     "AddressLine1" : "Suite 400, Innovation Park",
+#     "AddressLine2" : "100 Tech Venture Way",
+#     "State" : "California",
+#     "Country" : "USA",
+#     "Pincode" : "94016",
+#     "ID" : "211"
+# }
+
+
+
+############################ Functions ############################
+## Calling Function getPrice using GET Call
+GET http://localhost:4004/odata/v4/product-shop/getProductDescByNumber(Number=1)
+
+
+############################ Actions ############################
+## Calling Action getPrice using POST Call
+# POST http://localhost:4004/odata/v4/product-shop/getPrice
+# Content-Type: application/json
+
+# {
+#   "Number": "1"
+# }
+
+
+## Calling Action setPrice using POST Call
+# POST http://localhost:4004/odata/v4/product-shop/MaterialEntity(Number=1)/ProductShop.setPrice
+# Content-Type: application/json
+
+# {
+#   "Price": 100
+# }
+
+
+## Calling Action setPrice using POST Call
+# POST http://localhost:4004/odata/v4/product-shop/MaterialEntity(Number=1)/ProductShop.changeDescription
+# Content-Type: application/json
+
+# {
+#   "Description" : "Copper Wiring 14 AWG"
+# }

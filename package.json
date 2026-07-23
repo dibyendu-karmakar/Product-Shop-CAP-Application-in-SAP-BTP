@@ -40,6 +40,12 @@
             }
           }
         }
+      },
+      "db": {
+        "kind": "sqlite",
+        "credential": {
+          "database": "db.sqlite"
+        }
       }
     }
   }

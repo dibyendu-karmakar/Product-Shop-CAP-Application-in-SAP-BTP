@@ -2,16 +2,23 @@
   "name": "ProductShop",
   "version": "1.0.0",
   "dependencies": {
-    "@sap/cds": "^9",
+    "@cap-js/hana": "^3.0.1",
+    "@sap/cds": "^10.0.4",
     "@sap/xssec": "^4"
   },
   "devDependencies": {
     "@cap-js/sqlite": "^2.4",
-    "cds-plugin-ui5": "^0.17.0"
+    "@sap/cds-dk": "^10",
+    "cds-plugin-ui5": "^0.17.0",
+    "rimraf": "^5.0.5",
+    "mbt": "^1.2.49"
   },
   "scripts": {
     "start": "cds-serve",
-    "watch-productshop": "cds watch --open ns.productshop/index.html?sap-ui-xx-viewCache=false --livereload false"
+    "watch-productshop": "cds watch --open ns.productshop/index.html?sap-ui-xx-viewCache=false --livereload false",
+    "undeploy": "cf undeploy ProductShop --delete-services --delete-service-keys --delete-service-brokers",
+    "build": "rimraf resources mta_archives && mbt build --mtar archive",
+    "deploy": "cf deploy mta_archives/archive.mtar --retries 1"
   },
   "private": true,
   "workspaces": [
@@ -41,11 +48,9 @@
           }
         }
       },
-      "db": {
-        "kind": "sqlite",
-        "credential": {
-          "database": "db.sqlite"
-        }
+      "db": "hana",
+      "[production]": {
+        "auth": "xsuaa"
       }
     }
   }

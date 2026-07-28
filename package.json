@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "dependencies": {
     "@cap-js/hana": "^3.0.1",
+    "@sap-cloud-sdk/connectivity": "^4",
+    "@sap-cloud-sdk/http-client": "^4.8.0",
+    "@sap-cloud-sdk/resilience": "^4.8.0",
     "@sap/xssec": "^4"
   },
   "devDependencies": {
@@ -53,6 +56,26 @@
         "[production]": {
           "auth": "xsuaa"
         }
+      },
+      "ProductMasterA2X": {
+        "kind": "odata-v2",
+        "model": "srv/external/ProductMasterA2X",
+        "[production]": {
+          "credentials": {
+            "path": "s4hanacloud/sap/opu/odata/sap/API_PRODUCT_SRV"
+          }
+        },
+        "[development]": {
+          "credentials": {
+            "url": "https://sandbox.api.sap.com",
+            "path": "s4hanacloud/sap/opu/odata/sap/API_PRODUCT_SRV",
+            "headers": {
+              "APIKey": "QompMy07xnv3xToMowSLxKCeDfQlU2vV"
+            }
+          }
+        },
+        "csrf": true,
+        "csrfInBatch": true
       }
     }
   }

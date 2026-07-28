@@ -1,4 +1,4 @@
-# SAP CAP Product Shop Service Application
+# SAP CAP Product Shop Service
 
 This repository contains the data model, service definitions, custom business logic handlers, and SAP Fiori UI annotations for the **Product Shop** application, built using the SAP Cloud Application Programming Model (CAP).
 

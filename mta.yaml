@@ -9,6 +9,7 @@ modules:
     requires:
       - name: ProductShop-auth
       - name: ProductShop-db
+      - name: ProductShop-destination-service
     provides:
       - name: srv-api
         properties:

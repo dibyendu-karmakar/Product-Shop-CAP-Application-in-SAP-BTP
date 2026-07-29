@@ -10,6 +10,7 @@
   },
   "devDependencies": {
     "@cap-js/sqlite": "^2.4",
+    "@sap/cds-dk": "^10",
     "cds-plugin-ui5": "^0.17.0",
     "mbt": "^1.2.49",
     "rimraf": "^5.0.5"
@@ -62,6 +63,7 @@
         "model": "srv/external/ProductMasterA2X",
         "[production]": {
           "credentials": {
+            "destination": "Product-Shop",
             "path": "s4hanacloud/sap/opu/odata/sap/API_PRODUCT_SRV"
           }
         },
